@@ -1,0 +1,5 @@
+naam = input("Wat is jouw naam? ")
+leeftijd = input("Hoe oud ben jij? ")
+eten = input("Wat eet jij liefst? ")
+drinken = input("Wat drink jij liefst naast " + eten + "? ")
+print(f"Jouw naam is {naam} en {leeftijd} jaar oud, jij drinkt {drinken} liefst naast {eten}.")
