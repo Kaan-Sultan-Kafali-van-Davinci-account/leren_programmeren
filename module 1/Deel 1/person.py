@@ -1,3 +1,8 @@
+
+name = input('what\'s your name')
+print(f'Hi {name}, you are ' + {input("What is your mood?")})
+
+
 naam = input("Naam: ")
 adres = input("Adres: ")
 postcode = input("Postcode: ")
