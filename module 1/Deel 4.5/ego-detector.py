@@ -18,5 +18,5 @@ def get_ego():
         if len(words) >= 2 and (words[0] in ('ik','mijn') or words[1] in ('ik','mijn')):
             ego_score += 1
     return ego_score
- 
+
 print(get_ego())

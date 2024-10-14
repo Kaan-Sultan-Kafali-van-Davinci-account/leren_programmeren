@@ -213,12 +213,45 @@ int main() {
         cout << "Kies je zwaard (1) of kies je schild (2) of kies je sleutel (3) of pass (4)? Kies uit 1, 2, 3 en 4: " << endl;
         cin >> picked_item;
         
-        if (picked_item == 1 and player1.getRupees() >= 1) {item = "zwaard"; player1.setAttack(player1.getAttack() + 2); cout << "Je pakt het " << item << " op en houd het bij je. Je hebt een rupee besteden. RUPEE -1, ATTACK + 2" << endl; player1.setRupees(player1.getRupees() - 1);}
-        if (picked_item == 2 and player1.getRupees() >= 1) {item = "schild"; player1.setDefense(player1.getDefense() + 1); cout << "Je pakt het " << item << " op en houd het bij je. Je hebt een rupee besteden. RUPEE -1, DEFENSE + 1" << endl; player1.setRupees(player1.getRupees() - 1);}
-        if (picked_item == 3) {item = "sleutel"; cout << "Je pakt het " << item << " op en houd het bij je. Je hebt een rupee besteden. RUPEE -1, KEY OBTAINED!" << endl; player1.setKey(true); player1.setRupees(player1.getRupees() - 1);}
-        if (picked_item == 4) {cout << "Pass." << endl; break;}
-        if (player1.getRupees() < 1) {cout << "Je hebt geen rupee meer over." << endl; break;}
+        if (picked_item == 1 && player1.getRupees() >= 1) {
+            if (!player1.getGotSword()) {
+                item = "zwaard"; 
+                player1.setAttack(player1.getAttack() + 2); 
+                cout << "Je pakt het " << item << " op en houd het bij je. Je hebt een rupee besteden. RUPEE -1, ATTACK + 2" << endl; 
+                player1.setRupees(player1.getRupees() - 1); 
+                player1.setGotSword(true);
+            } else {
+                cout << "De zwaard heb je al!" << endl;
+            }
+        } else if (picked_item == 2 && player1.getRupees() >= 1) {
+            if (!player1.getGotShield()) {
+                item = "schild"; 
+                player1.setDefense(player1.getDefense() + 1); 
+                cout << "Je pakt het " << item << " op en houd het bij je. Je hebt een rupee besteden. RUPEE -1, DEFENSE + 1" << endl; 
+                player1.setRupees(player1.getRupees() - 1); 
+                player1.setGotShield(true);
+            } else {
+                cout << "De schild heb je al!" << endl;
+            }
+        } else if (picked_item == 3 && player1.getRupees() >= 1) {
+            if (!player1.getKey()) {
+                item = "sleutel"; 
+                cout << "Je pakt het " << item << " op en houd het bij je. Je hebt een rupee besteden. RUPEE -1, KEY OBTAINED!" << endl; 
+                player1.setKey(true); 
+                player1.setRupees(player1.getRupees() - 1);
+            } else {
+                cout << "De sleutel heb je al!" << endl;
+            }
+        } else if (picked_item == 4) {
+            cout << "Pass." << endl;
+            break
         }
+        
+        if (player1.getRupees() < 1) {
+            cout << "Je hebt geen rupee meer over." << endl;
+            break
+        }
+    }
     cout << "Op naar de volgende deur." << endl;
     cout << "" << endl;
 
