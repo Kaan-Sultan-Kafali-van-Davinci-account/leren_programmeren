@@ -1,15 +1,15 @@
 import random
 
 #selecteer 2 nummers
-num1 = str(random.randint(1, 10))
-num2 = str(random.randint(5, 15))
+num1 = random.randint(1, 10)
+num2 = random.randint(5, 15)
 
 #vraag om een antwoord
-number = input('Weet jij wat ' + num1 + '+' + num2 + ' is? ') 
 
 #geef reactie op het antwoord
 try:
-    if int(number) == int(num1) + int(num2):
+    number = int(input('Weet jij wat ' + str(num1) + '+' + str(num2) + ' is? '))
+    if number == num1 + num2:
         print('Dat is juist')
     else:
         print('Nee dat klopt niet')
