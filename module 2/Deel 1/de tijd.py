@@ -1,0 +1,1 @@
+for uur in range(24): print(uur, "AM") if uur <= 12 else print(uur - 12, "PM")

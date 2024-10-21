@@ -1,0 +1,1 @@
+for no in range(21, 50): print(no) if no % 2 == 0 else 0
