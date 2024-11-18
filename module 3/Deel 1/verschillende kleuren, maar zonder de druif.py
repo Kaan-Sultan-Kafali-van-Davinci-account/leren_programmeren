@@ -2,23 +2,9 @@ import fruitmand
 
 fruitmand.fruitmand.remove(fruitmand.fruitmand[5])
 
-reoccuring = {
-    "black": False,
-    "brown": False,
-    "dark red": False,
-    "red": False,
-    "orange": False,
-    "yellow": False,
-    "light green": False,
-    "green": False,
-    "dark green": False,
-    "blue": False,
-    "purple": False,
-    "pink": False,
-    "white": False
-}
+reoccuring = []
 
 for fruit in fruitmand.fruitmand:
-    if not reoccuring[fruit["color"]]:
+    if not fruit["color"] in reoccuring:
         print(fruit["name"])
-        reoccuring[fruit["color"]] = True
+        reoccuring.append(fruit["color"])
