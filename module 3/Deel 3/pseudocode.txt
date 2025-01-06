@@ -1,0 +1,13 @@
+Start
+
+Voer drie namen in
+
+als de gebruiker het nog wilt kunnen ze nog ééntje invoeren
+
+Na deze fase worden er lootjes getrokken… random.shuffle tussen alles can de list
+
+map de list naar een dictionary
+
+toon de lootje van degene die ingetypt wordt
+
+Einde

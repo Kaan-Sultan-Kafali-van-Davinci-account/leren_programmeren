@@ -1,0 +1,37 @@
+voor herhaal 20 rondes
+
+  maak random getal van 1 tot 1000
+
+  herhaal maximaal 10 pogingen
+
+    voer getal in
+
+    als getal hoger is dan random getal, print hoger
+
+    als getal lager is dan random getal, print lager
+
+    als het verschil tussen geraden getal en random getal kleiner is dan 50, print warm
+
+    als het verschil tussen geraden getal en random getal kleiner is dan 20, print heel warm
+
+    poging verhoogd
+
+    als geraden, dan score wordt verhoogd
+
+    als getal geraden of je hebt 10 keer geraden is dan wordt er gevraagd of de gebruiker wilt verlaten, als niet? Dan wordt er nog een ronde gespeeld
+
+ 
+
+ 
+
+maak random getal van 1 tot 1000
+
+terwijl de gebruiker 10 keer niet fout geraden moet hij blijven raden tot dat hij get geraden heeft
+
+er zijn 20 rondes en elke ronde heeft 10 pogingen
+
+als de gebruiker geraden heeft eindigt het ronde
+
+na elke ronden wordt er gevraagd of de gebruiker wilt verlaten
+
+er wordt gezegt of het warm of heel warm is; of terwijl, de random getal en geraden getal een verschil heeft vanaf 50 of 20
