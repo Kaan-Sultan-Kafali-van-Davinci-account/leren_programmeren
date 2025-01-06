@@ -7,6 +7,8 @@ while rondes <= 20:
     poging = 0
     getal = random.randrange(1, 1000)
 
+    print(getal)
+
     while poging <= 10:
         while True:
             try:
@@ -58,3 +60,4 @@ while rondes <= 20:
         break
 
 print("- Game Over -")
+print("Eindscore: ", score)
