@@ -1,29 +1,28 @@
 from functions import *
 
 def calculate(n1, n2):
-    global answer
     if choice == "a":
         answer = add(n1, n2)
 
-    if choice == "b":
+    elif choice == "b":
         answer = subtract(n1, n2)
 
-    if choice == "c":
+    elif choice == "c":
         answer = multiply(n1, n2)
 
-    if choice == "d":
+    elif choice == "d":
         answer = divide(n1, n2)
 
-    if choice == "e":
+    elif choice == "e":
         answer = increase(n1)
 
-    if choice == "f":
+    elif choice == "f":
         answer = decrease(n1)
 
-    if choice == "g":
+    elif choice == "g":
         answer = double(n1)
 
-    if choice == "h":
+    elif choice == "h":
         answer = half(n1)
 
     return answer
@@ -41,6 +40,7 @@ if choice in ["a", "b", "c", "d"]:
 
 elif choice in ["e", "f", "g", "h"]:
     n1 = float(input("Geef het getal: "))
+    n2 = 0
 
 answer = calculate(n1, n2)
 
@@ -54,10 +54,11 @@ while True:
 
     if choice in ["a", "b", "c", "d"]:
         n2 = float(input("Geef het getal: "))
+    
+    if choice == "i":
+        break
 
     answer = calculate(answer, n2)
-
-    if choice == "i": break
 
     if choice == "":
         answer = calculate(answer, n2)

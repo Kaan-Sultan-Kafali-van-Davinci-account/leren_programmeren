@@ -1,66 +1,111 @@
 import time
 from termcolor import colored
-from data import JOURNEY_IN_DAYS
+from math import ceil
+from data import *
 
 ##################### O03 #####################
 
 def copper2silver(amount:int) -> float:
-    pass
+    return round(amount / 10, 2)
 
 def silver2gold(amount:int) -> float:
-    pass
+    return round(amount / 5, 2)
 
 def copper2gold(amount:int) -> float:
-    pass
+    return round(copper2silver(amount) / 5, 2)
 
 def platinum2gold(amount:int) -> float:
-    pass
+    return round(amount * 25, 2)
 
 def getPersonCashInGold(personCash:dict) -> float:
-    pass
+    cash = 0
+    for resource in personCash:
+        if resource == 'copper':
+            cash += copper2gold(personCash[resource])
+        if resource == 'silver':
+            cash += silver2gold(personCash[resource])
+        if resource == 'gold':
+            cash += personCash[resource]
+        if resource == 'platinum':
+            cash += platinum2gold(personCash[resource])
+    return round(cash, 2)
 
 ##################### O05 #####################
 
 def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
-    pass
+    foodCost = COST_FOOD_HUMAN_COPPER_PER_DAY * people
+    horsesCost = COST_FOOD_HORSE_COPPER_PER_DAY * horses
+    return copper2gold((foodCost + horsesCost) * JOURNEY_IN_DAYS)
 
 ##################### O06 #####################
 
-def getFromListByKeyIs(list:list, key:str, value:any) -> list:
-    pass
+def getFromListByKeyIs(list: list, key: str, value: any) -> list:
+    items = []
+    for dictionary in list:
+        if key in dictionary and dictionary[key] == value:
+            items.append(dictionary)
+    return items
 
 def getAdventuringPeople(people:list) -> list:
-    pass
+    return getFromListByKeyIs(people, "adventuring", True)
 
 def getShareWithFriends(friends:list) -> list:
-    pass
+    return getFromListByKeyIs(friends, "shareWith", True)
 
 def getAdventuringFriends(friends:list) -> list:
-    pass
+    items = []
+    for dictionary in friends:
+        if dictionary["adventuring"] and dictionary["shareWith"]:
+            items.append(dictionary)
+    return items
 
 ##################### O07 #####################
 
 def getNumberOfHorsesNeeded(people:int) -> int:
-    pass
+    return ceil(people / 2)
 
 def getNumberOfTentsNeeded(people:int) -> int:
-    pass
+    return ceil(people / 3)
 
-def getTotalRentalCost(horses:int, tents:int) -> float:
-    pass
+def getTotalRentalCost(horses: int, tents: int) -> float:
+    horse_cost = silver2gold(COST_HORSE_SILVER_PER_DAY * horses * JOURNEY_IN_DAYS)
+    tent_cost = COST_TENT_GOLD_PER_WEEK * tents * ceil(JOURNEY_IN_DAYS / 7)
+    return round(horse_cost + tent_cost, 2)
 
 ##################### O08 #####################
 
 def getItemsAsText(items:list) -> str:
-    pass
+    final = ""
+    for index, item in enumerate(items):
+        final += str(item['amount']) + item['unit'] + " " + item['name']
+        if len(items) > 1:
+            if index < len(items) - 2:
+                final += ', '
+            elif index < len(items) - 1:
+                final += ' & '
+    return final
 
 def getItemsValueInGold(items:list) -> float:
-    pass
+    total = 0
+    for item in items:
+        if item["price"]["type"] == "copper":
+            total += copper2gold(item["price"]["amount"]) * item["amount"]
+        if item["price"]["type"] == "silver":
+            total += silver2gold(item["price"]["amount"]) * item["amount"]
+        if item["price"]["type"] == "gold":
+            total += item["price"]["amount"] * item["amount"]
+        if item["price"]["type"] == "platinum":
+            total += platinum2gold(item["price"]["amount"]) * item["amount"]
+    total = round(total, 2)
+    return float(total)
 
 ##################### O09 #####################
 
 def getCashInGoldFromPeople(people:list) -> float:
-    pass
+    total = 0.0
+    for person in people:
+        total += getPersonCashInGold(person["cash"])
+    return round(total, 2)
 
 ##################### O10 #####################
 

@@ -54,7 +54,7 @@ def input(prompt: str = ''):
       type_text(input_data+'\n')
       return input_data
 
-  return builtins.input()
+  return builtins.input(">")
 
 def print(*args, **kwargs):
   builtins.print(*args,**kwargs)
